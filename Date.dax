@@ -1179,6 +1179,7 @@ VAR FiscalWeeksBase =
         VAR IsWorkingDay =
             CONTAINS ( WorkingDays, [WorkingDayNumber], WEEKDAY ( CalDate, 1 ) - 1 )
                 && ISBLANK ( [Holiday Name] )
+         VAR YearToDate = AND([Date] <= NOW(),YEAR(NOW()) = [FW YearNumber] )
         RETURN
             ROW (
                 "DateKey", CalYear * 10000
@@ -1224,7 +1225,8 @@ VAR FiscalWeeksBase =
                 "Week Day", FORMAT ( CalDate, "ddd" ),
                 "FW DayOfYearNumber", FwDayOfYear,
                 "IsWorkingDay", IsWorkingDay,
-                "Day Type", IF ( IsWorkingDay, WorkingDayType, NonWorkingDayType )
+                "Day Type", IF ( IsWorkingDay, WorkingDayType, NonWorkingDayType ),
+                "_FW YTD", YearToDate
             )
     )
 VAR FiscalWeeks_Pre = 

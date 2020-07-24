@@ -1515,6 +1515,7 @@ VAR Result =
         "FW DatePreviousMonth", [FW DatePreviousMonth],
         "FW DatePreviousQuarter", [FW DatePreviousQuarter],
         "FW DatePreviousYear", [FW DatePreviousYear],
+        "_FW YTD", [_FW YTD],
 
         -- Holidays and working days
         "Holiday Name", [Holiday Name],
